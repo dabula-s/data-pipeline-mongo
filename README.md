@@ -6,11 +6,11 @@ Software/Data Engineer Exercise
 
 - [About This Project](#about-this-project)
   - [Motivation](#motivation)
-  - [Architecture](#architecture)
+  - [Project structure](#project-structure)
 - [Project Documentation](#project-documentation)
   - [Prerequisites](#prerequisites)
   - [Local Deployment](#local-deployment)
-  - [Example Plots](#example-plots)
+  - [Plots Examples](#plots-examples)
 
 ## About this project
 
@@ -94,18 +94,22 @@ separate MongoDB collections for each source, normalized and deduplicated/merged
 
 `docker` and 'docker compose' should be installed.
 
-#### Local deployment steps
+#### Local Deployment
 
 1. Run:
 ```bash
 make build
 ```
-2. Set API tokens in `.env` file.
-3. Run (notice that the implemented pipeline is executed to fill collections, see `docker/entrypoint.sh`):
+2. Run:
+```bash
+cp .env.example .env
+```
+3. Set API tokens in `.env` file.
+4. Run (notice that the implemented pipeline is executed to fill collections, see `docker/entrypoint.sh`):
 ```bash
 make up
 ```
-4. Go to [api docs link](http://localhost:8000/docs) to try endpoints or
+5. Go to [api docs link](http://localhost:8000/docs) to try endpoints or
 go to [mongo express page](http://localhost:8081/) to manage changes in collections.
 
 #### Plots examples
