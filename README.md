@@ -92,7 +92,7 @@ separate MongoDB collections for each source, normalized and deduplicated/merged
 
 #### Prerequisites
 
-`docker` and 'docker compose' should be installed.
+`docker` and `docker compose` should be installed.
 
 #### Local Deployment
 
