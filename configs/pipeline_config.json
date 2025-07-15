@@ -1,0 +1,38 @@
+{
+  "fetching": {
+    "sources": {
+      "qualys": {
+        "api_token_env": "QUALYS_API_KEY",
+        "offset": 0,
+        "limit": 1,
+        "target_collection": "qualys_raw"
+      },
+      "crowdstrike": {
+        "api_token_env": "CROWDSTRIKE_API_KEY",
+        "offset": 0,
+        "limit": 1,
+        "target_collection": "crowdstrike_raw"
+      }
+    }
+  },
+  "normalization": {
+    "sources": {
+      "qualys": {
+        "source_collection": "qualys_raw",
+        "target_collection": "normalized_data"
+      },
+      "crowdstrike": {
+        "source_collection": "crowdstrike_raw",
+        "target_collection": "normalized_data"
+      }
+    }
+  },
+  "deduplication": {
+    "collection": "normalized_data",
+    "unique_keys": ["hostname", "local_ip", "external_ip"],
+    "source_priorities": {
+      "qualys": 2,
+      "crowdstrike": 1
+    }
+  }
+}

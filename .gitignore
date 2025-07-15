@@ -1,0 +1,6 @@
+.venv/
+.idea/
+.env
+info.log
+error.log
+debug.log
